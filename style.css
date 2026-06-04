@@ -109,7 +109,7 @@ text-align:center;
     height:350px;
     object-fit:cover;
     border-radius:50%;
-    border:8px solid #b38d97;
+    border:8px solid rgb(59, 59, 240);
     box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
