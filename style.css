@@ -28,36 +28,25 @@ margin:auto;
 /* HEADER */
 
 header{
-position:sticky;
-top:0;
-background: rgb(47, 47, 232);
-box-shadow: rgb(160, 220, 10);
-z-index: 500;
+    position:sticky;
+    top:0;
+    background:rgb(47,47,232);
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    z-index:1000;
 }
 
 .header-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
 }
 
-.logo a{
-text-decoration:none;
-color:#444;
+.logo img{
+    width:90px;
+    height:auto;
+    display:block;
 }
-
-.logo-text{
-font-family:'Playfair Display',serif;
-font-size:1.3rem;
-font-weight:700;
-}
-
-.logo-text small{
-font-size:.7rem;
-letter-spacing:1px;
-}
-
 /* MENU */
 
 #menu{
@@ -102,7 +91,7 @@ margin-bottom:20px;
 }
 
 .highlight{
-color:#b38d97;
+color: rgb(56, 56, 238);
 }
 
 .hero-text p{
@@ -128,7 +117,7 @@ text-align:center;
 
 .btn-primary{
 display:inline-block;
-background:#b38d97;
+background: rgb(60, 60, 240);
 color:#fff;
 text-decoration:none;
 padding:14px 30px;
