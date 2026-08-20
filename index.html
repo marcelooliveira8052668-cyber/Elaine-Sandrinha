@@ -4,108 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elaine & Sandra - Neuropsicopedagogia Clínica</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A7C59;
+            --primary-dark: #355840;
+            --secondary: #F7F9F6;
+            --accent: #E09F3E;
+            --text-dark: #2C3E50;
+            --text-light: #6C7A89;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-dark); background-color: var(--secondary); }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo img { height: 50px; width: auto; border-radius: 50%; }
+        .logo strong { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--primary-dark); }
+        
+        #menu { display: flex; list-style: none; gap: 30px; align-items: center; }
+        #menu a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        #menu a:hover { color: var(--primary); }
+        #btn-mobile { display: none; background: none; border: none; cursor: pointer; }
+
+        /* Hero */
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 140px 20px 80px; gap: 40px; min-height: 90vh; }
+        .hero-text { flex: 1; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: var(--primary-dark); line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 .highlight { color: var(--accent); }
+        .hero p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px; }
+        .hero-image img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow); border: 5px solid var(--white); }
+        
+        .btn-primary { display: inline-block; padding: 14px 32px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 30px; font-weight: 600; box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3); transition: all 0.3s; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* Sections General */
+        section { padding: 80px 0; }
+        section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-dark); text-align: center; margin-bottom: 20px; }
+        
+        /* Sobre e Galeria */
+        .about-section p { max-width: 800px; margin: 0 auto 50px; text-align: center; font-size: 1.1rem; color: var(--text-light); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .gallery-grid figure { overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); background: var(--white); }
+        .gallery-grid img { width: 100%; height: 220px; object-fit: cover; cursor: pointer; transition: transform 0.4s ease; display: block; }
+        .gallery-grid img:hover { transform: scale(1.08); }
+
+        /* Serviços */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px; }
+        .service-card { background: var(--white); padding: 40px 30px; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
+        .service-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* Avaliação Neuropsicopedagógica */
+        .assessment-section { background: var(--white); }
+        .assessment-intro { text-align: center; max-width: 900px; margin: 0 auto 50px; color: var(--text-light); font-size: 1.05rem; }
+        .assessment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .assessment-card { background: var(--secondary); padding: 30px; border-radius: var(--radius); border-left: 4px solid var(--primary); }
+        .assessment-card h3 { font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 15px; }
+        .assessment-card ul { list-style-position: inside; color: var(--text-light); font-size: 0.95rem; }
+        .assessment-card li { margin-bottom: 8px; }
+        
+        .report-box { background: linear-gradient(135deg, #4A7C59 0%, #355840 100%); color: var(--white); padding: 40px; border-radius: var(--radius); margin-top: 30px; box-shadow: var(--shadow); }
+        .report-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; }
+        .report-box p { margin-bottom: 15px; opacity: 0.95; }
+
+        /* Contato */
+        .contact-sub { text-align: center; color: var(--text-light); margin-bottom: 40px; }
+        #contact-form { max-width: 650px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--primary-dark); }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+        #contact-form button { width: 100%; cursor: pointer; border: none; font-size: 1rem; }
+
+        /* Lightbox */
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 85%; max-height: 80vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
+        .lightbox button { position: absolute; background: rgba(255,255,255,0.2); color: white; border: none; font-size: 2rem; padding: 10px 20px; cursor: pointer; border-radius: 50%; transition: background 0.3s; }
+        .lightbox button:hover { background: rgba(255,255,255,0.4); }
+        .lightbox .close { top: 30px; right: 40px; font-size: 2.5rem; }
+        .lightbox .prev { left: 30px; }
+        .lightbox .next { right: 30px; }
+
+        /* Footer */
+        footer { background: var(--primary-dark); color: var(--white); text-align: center; padding: 40px 20px; }
+        footer p { margin-bottom: 10px; opacity: 0.9; }
+        .instagram-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 500; margin-top: 10px; transition: opacity 0.3s; }
+        .instagram-link:hover { opacity: 0.8; }
+
+        /* Responsivo Mobile */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
+            .hero h1 { font-size: 2.3rem; }
+            #menu { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: var(--white); padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.05); }
+            #menu.active { display: flex; }
+            #btn-mobile { display: block; font-size: 1.5rem; }
+            #hamburger { display: inline-block; width: 25px; height: 3px; background: var(--text-dark); position: relative; }
+            #hamburger::before, #hamburger::after { content: ''; position: absolute; width: 25px; height: 3px; background: var(--text-dark); left: 0; transition: 0.3s; }
+            #hamburger::before { top: -8px; }
+            #hamburger::after { top: 8px; }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- CABEÇALHO -->
     <header role="banner">
         <div class="container header-container">
             <div class="logo">
-                
-                    <img src="foto.jpg" alt="">
-                    
+                <a href="#home">
+                    <img src="foto.jpg" alt="Logo Elaine & Sandra" onerror="this.style.display='none'">
                 </a>
             </div>
             
             <nav id="nav" role="navigation" aria-label="Navegação Principal">
                 <button id="btn-mobile" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-                    
                     <span id="hamburger"></span>
                 </button>
                 <ul id="menu" role="menubar">
                     <li role="none"><a href="#home" role="menuitem">Início</a></li>
                     <li role="none"><a href="#sobre" role="menuitem">Quem Somos</a></li>
                     <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
+                    <li role="none"><a href="#avaliacao" role="menuitem">Avaliação</a></li>
                     <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main role="main">
         
+        <!-- HERO -->
         <section id="home" class="hero container" aria-labelledby="hero-title">
-            <div class="hero-text"> <br>
+            <div class="hero-text">
                 <h1 id="hero-title">O Olhar do Neuropsicopedagogo<br><span class="highlight">Muda Famílias</span> <span aria-hidden="true">❤️</span></h1>
                 <p>Entenda como esse profissional pode contribuir com a ativação cognitiva da sua criança. Cuidar da mente é abrir caminhos para o futuro.</p>
                 <a href="#contato" class="btn-primary">Agendar Consulta</a>
             </div>
             <div class="hero-image">
-    <img src="foto1.jpg" width="250" alt="Elaine e Sandra - Neuropsicopedagogas Clínicas">
-</div>
+                <img src="foto1.jpg" alt="Elaine e Sandra - Neuropsicopedagogas Clínicas" onerror="this.src='https://via.placeholder.com/280'">
+            </div>
         </section>
 
+        <!-- SOBRE E GALERIA -->
         <section id="sobre" class="about-section" aria-labelledby="about-title">
-            <div class="container"> <br>
-                <br>
-                <br>
+            <div class="container">
                 <h2 id="about-title">Quem Somos</h2>
                 <p>Somos <strong>Elaine Romanha Pavechi</strong> e <strong>Sandra Nobre</strong>, Neuropsicopedagogas Clínicas. Nosso trabalho em Osasco, SP, é focado em entender como o cérebro absorve informações e em ajudar crianças a superarem barreiras de aprendizagem, devolvendo a elas a autoestima e o prazer de aprender.</p>
+                
+                <div class="gallery-grid">
+                    <figure><img src="foto1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto5.jpg" alt="Foto 5" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto6.jpg" alt="Foto 6" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto7.jpg" alt="Foto 7" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                    <figure><img src="foto9.jpg" alt="Foto 9" onerror="this.src='https://via.placeholder.com/300'"></figure>
+                </div>
             </div>
-<section class="gallery-grid">
-
-    <figure>
-        <img src="foto1.jpg" alt="Foto 1">
-    </figure>
-
-    <figure>
-        <img src="foto2.jpg" alt="Foto 2">
-    </figure>
-
-    <figure>
-        <img src="foto3.jpg" alt="Foto 3">
-    </figure>
-
-    <figure>
-        <img src="foto4.jpg" alt="Foto 4">
-    </figure>
-<figure>
-    <img src="foto5.jpg" alt="Foto 5">
-</figure>
-<figure>
-    <img src="foto6.jpg" alt="">
-</figure>
-<figure>
-    <img src="foto7.jpg" alt="">
-</figure>
-<figure>
-<img src="foto9.jpg" alt="">
-</figure>
-</section>
-
-<!-- Lightbox -->
-
-<div class="lightbox" id="lightbox">
-
-    <button class="close">&times;</button>
-
-    <button class="prev">&#10094;</button>
-
-    <img src="" alt="Imagem ampliada" id="lightbox-img">
-
-    <button class="next">&#10095;</button>
-
-</div>
         </section>
 
-        <section id="servicos" class="container" aria-labelledby="services-title">
-            <br>
-            <h2 id="services-title">Serviços</h2>
-            <div class="services-grid"> 
-                
+        <!-- LIGHTBOX -->
+        <div class="lightbox" id="lightbox">
+            <button class="close" aria-label="Fechar">&times;</button>
+            <button class="prev" aria-label="Anterior">&#10094;</button>
+            <img src="" alt="Imagem ampliada" id="lightbox-img">
+            <button class="next" aria-label="Próxima">&#10095;</button>
+        </div>
 
-                
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="container" aria-labelledby="services-title">
+            <h2 id="services-title">Nossos Serviços</h2>
+            <div class="services-grid"> 
                 <article class="service-card" tabindex="0">
                     <div class="icon" aria-hidden="true">🧠</div>
                     <h3>Desenvolvimento Cognitivo</h3>
@@ -129,97 +210,81 @@
                     <h3>Parceria com a Família</h3>
                     <p>Orientação próxima aos pais para que o suporte e a evolução continuem também dentro de casa.</p>
                 </article>
-
             </div>
         </section>
 
-<section id="avaliacao" class="assessment-section">
-    <div class="container">
+        <!-- AVALIAÇÃO NEUROPSICOPEDAGÓGICA -->
+        <section id="avaliacao" class="assessment-section" aria-labelledby="assessment-title">
+            <div class="container">
+                <h2 id="assessment-title">Avaliação Neuropsicopedagógica</h2>
+                <p class="assessment-intro">
+                    A Avaliação Neuropsicopedagógica tem como objetivo identificar e compreender
+                    as dificuldades que podem estar interferindo no processo de aprendizagem da criança ou adolescente.
+                    Por meio de procedimentos científicos e observações clínicas, realizamos um mapeamento das habilidades cognitivas,
+                    acadêmicas, emocionais e motoras, permitindo uma compreensão ampla do desenvolvimento do estudante.
+                </p>
 
-```
-    <h2>Avaliação Neuropsicopedagógica</h2>
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <h3>📋 Como Funciona</h3>
+                        <ul>
+                            <li>Até 10 sessões de avaliação.</li>
+                            <li>As 2 primeiras sessões são destinadas à Anamnese com os responsáveis.</li>
+                            <li>Coleta de informações sobre o histórico de desenvolvimento e aprendizagem.</li>
+                            <li>Aplicação de instrumentos e testes específicos.</li>
+                        </ul>
+                    </div>
 
-    <p>
-        A Avaliação Neuropsicopedagógica tem como objetivo identificar e compreender
-        as dificuldades que podem estar interferindo no processo de aprendizagem da criança ou adolescente.
-        Por meio de procedimentos científicos e observações clínicas, realizamos um mapeamento das habilidades cognitivas,
-        acadêmicas, emocionais e motoras, permitindo uma compreensão ampla do desenvolvimento do estudante.
-    </p>
+                    <div class="assessment-card">
+                        <h3>🧠 O Que é Avaliado</h3>
+                        <ul>
+                            <li>Atenção e concentração.</li>
+                            <li>Memória e Funções executivas.</li>
+                            <li>Habilidades linguísticas, leitura e escrita.</li>
+                            <li>Habilidades matemáticas e coordenação motora.</li>
+                            <li>Aspectos socioemocionais.</li>
+                        </ul>
+                    </div>
 
-    <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <h3>🔬 Instrumentos Utilizados</h3>
+                        <ul>
+                            <li>Entrevistas com familiares e paciente.</li>
+                            <li>Observação clínica estruturada.</li>
+                            <li>Testes padronizados com base científica.</li>
+                            <li>Protocolos específicos de avaliação.</li>
+                        </ul>
+                    </div>
 
-        <div class="assessment-card">
-            <h3>📋 Como Funciona</h3>
-            <ul>
-                <li>Até 10 sessões de avaliação.</li>
-                <li>As 2 primeiras sessões são destinadas à Anamnese com os responsáveis.</li>
-                <li>Coleta de informações sobre o histórico de desenvolvimento e aprendizagem.</li>
-                <li>Aplicação de instrumentos e testes específicos.</li>
-            </ul>
-        </div>
+                    <div class="assessment-card">
+                        <h3>🎯 Público-Alvo</h3>
+                        <ul>
+                            <li>Crianças e adolescentes.</li>
+                            <li>Dificuldades persistentes de aprendizagem.</li>
+                            <li>Baixo desempenho escolar.</li>
+                            <li>Déficits de atenção e atrasos cognitivos.</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <div class="assessment-card">
-            <h3>🧠 O Que é Avaliado</h3>
-            <ul>
-                <li>Atenção e concentração.</li>
-                <li>Memória.</li>
-                <li>Funções executivas.</li>
-                <li>Habilidades linguísticas.</li>
-                <li>Leitura e escrita.</li>
-                <li>Habilidades matemáticas.</li>
-                <li>Coordenação motora.</li>
-                <li>Aspectos socioemocionais.</li>
-            </ul>
-        </div>
+                <div class="report-box">
+                    <h3>📑 Relatório Avaliativo Neuropsicopedagógico (RAN)</h3>
+                    <p>
+                        Ao final do processo é elaborado o <strong>Relatório Avaliativo Neuropsicopedagógico (RAN)</strong>,
+                        contendo a descrição de todo o percurso avaliativo, resultados observados,
+                        orientações para a família, escola e demais profissionais envolvidos.
+                    </p>
+                    <p>
+                        Quando pertinente, hipóteses diagnósticas poderão ser descritas com base
+                        nos critérios estabelecidos pelo <strong>DSM-5</strong>, sempre respeitando
+                        os limites de atuação da Neuropsicopedagogia.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <div class="assessment-card">
-            <h3>🔬 Instrumentos Utilizados</h3>
-            <ul>
-                <li>Entrevistas com familiares.</li>
-                <li>Entrevistas com o paciente.</li>
-                <li>Observação clínica.</li>
-                <li>Testes padronizados com base científica.</li>
-                <li>Protocolos específicos de avaliação neuropsicopedagógica.</li>
-            </ul>
-        </div>
-
-        <div class="assessment-card">
-            <h3>🎯 Público-Alvo</h3>
-            <ul>
-                <li>Crianças e adolescentes.</li>
-                <li>Dificuldades persistentes de aprendizagem.</li>
-                <li>Baixo desempenho escolar.</li>
-                <li>Déficits de atenção.</li>
-                <li>Atrasos no desenvolvimento cognitivo.</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="report-box">
-        <h3>📑 Relatório Avaliativo Neuropsicopedagógico (RAN)</h3>
-
-        <p>
-            Ao final do processo é elaborado o <strong>Relatório Avaliativo Neuropsicopedagógico (RAN)</strong>,
-            contendo a descrição de todo o percurso avaliativo, resultados observados,
-            orientações para a família, escola e demais profissionais envolvidos.
-        </p>
-
-        <p>
-            Quando pertinente, hipóteses diagnósticas poderão ser descritas com base
-            nos critérios estabelecidos pelo <strong>DSM-5</strong>, sempre respeitando
-            os limites de atuação da Neuropsicopedagogia.
-        </p>
-    </div>
-
-</div>
-```
-
-</section>
-
-
+        <!-- CONTATO -->
         <section id="contato" class="container" aria-labelledby="contact-title">
-            <br>
             <h2 id="contact-title">Entre em Contato</h2>
             <p class="contact-sub">Preencha o formulário abaixo para tirar dúvidas ou agendar uma sessão em Osasco, SP.</p>
             
@@ -245,23 +310,88 @@
 
     </main>
 
-<footer role="contentinfo">
-    <div class="container footer-container">
-        <p>&copy; 2026 Elaine & Sandra - Neuropsicopedagogia Clínica.</p>
-        <p>Atendimentos em Osasco, SP, Brasil.</p>
+    <!-- RODAPÉ -->
+    <footer role="contentinfo">
+        <div class="container footer-container">
+            <p>&copy; 2026 Elaine & Sandra - Neuropsicopedagogia Clínica.</p>
+            <p>Atendimentos em Osasco, SP, Brasil.</p>
+            <p>
+                <a href="https://www.instagram.com/rnconectividade?igsh=MXEyOWxycng3aTducQ%3D%3D"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="instagram-link">
+                   📷 Siga-nos no Instagram
+                </a>
+            </p>
+        </div>
+    </footer>
 
-        <p>
-            <a href="https://www.instagram.com/rnconectividade?igsh=MXEyOWxycng3aTducQ%3D%3D"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="instagram-link">
-               📷 Siga-nos no Instagram
-            </a>
-        </p>
+    <!-- JAVASCRIPT INTEGRADO -->
+    <script>
+        // Menu Mobile
+        const btnMobile = document.getElementById('btn-mobile');
+        const menu = document.getElementById('menu');
 
-    </div>
-</footer>
+        btnMobile.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            const expanded = menu.classList.contains('active');
+            btnMobile.setAttribute('aria-expanded', expanded);
+        });
 
-    <script src="script.js"></script>
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Lightbox Galeria
+        const galleryImages = document.querySelectorAll('.gallery-grid img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox .close');
+        const prevBtn = document.querySelector('.lightbox .prev');
+        const nextBtn = document.querySelector('.lightbox .next');
+
+        let currentIndex = 0;
+        const imagesSrc = Array.from(galleryImages).map(img => img.src);
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = imagesSrc[currentIndex];
+                lightbox.classList.add('active');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % imagesSrc.length;
+            lightboxImg.src = imagesSrc[currentIndex];
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + imagesSrc.length) % imagesSrc.length;
+            lightboxImg.src = imagesSrc[currentIndex];
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Formulário de Contato
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
