@@ -3,263 +3,612 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elaine & Sandra - Neuropsicopedagogia Clínica</title>
+
+    <title>Elaine &amp; Sandra — Neuropsicopedagogia Clínica em Osasco/SP</title>
+    <meta name="description" content="Avaliação neuropsicopedagógica para crianças e adolescentes em Osasco, SP. Elaine Romanha Pavechi e Sandra Nobre identificam as dificuldades de aprendizagem e devolvem a autoestima de aprender.">
+    <meta name="author" content="Elaine Romanha Pavechi e Sandra Nobre">
+    <meta name="theme-color" content="#5b21b6">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Elaine &amp; Sandra — Neuropsicopedagogia Clínica">
+    <meta property="og:description" content="Avaliação neuropsicopedagógica para crianças e adolescentes em Osasco, SP.">
+    <meta property="og:image" content="sandra e elaine.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="foto.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Elaine & Sandra — Neuropsicopedagogia Clínica",
+      "description": "Avaliação e acompanhamento neuropsicopedagógico de crianças e adolescentes.",
+      "image": "sandra e elaine.jpg",
+      "areaServed": { "@type": "City", "name": "Osasco" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Osasco",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "founder": [
+        { "@type": "Person", "name": "Elaine Romanha Pavechi", "jobTitle": "Neuropsicopedagoga Clínica" },
+        { "@type": "Person", "name": "Sandra Nobre", "jobTitle": "Neuropsicopedagoga Clínica" }
+      ],
+      "knowsLanguage": "pt-BR"
+    }
+    </script>
 </head>
+
 <body>
 
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ============================================ HEADER -->
     <header role="banner">
         <div class="container header-container">
-            <div class="logo">
-                
-                    <img src="foto.jpg" alt="">
 
-            </div>
-            
-            <nav id="nav" role="navigation" aria-label="Navegação Principal">
-                <button id="btn-mobile" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-                    
-                    <span id="hamburger"></span>
+            <a class="logo" href="#inicio" aria-label="Elaine e Sandra — página inicial">
+                <img src="foto.jpg" alt="Elaine e Sandra — Neuropsicopedagoga Clínica" width="54" height="54">
+                <span class="logo-texto">
+                    <strong>Elaine &amp; Sandra</strong>
+                    <small>Neuropsicopedagogia Clínica</small>
+                </span>
+            </a>
+
+            <nav id="nav" class="nav" role="navigation" aria-label="Navegação principal">
+                <button id="btn-mobile" type="button" aria-label="Abrir menu"
+                        aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                    <span id="hamburger" aria-hidden="true"></span>
                 </button>
+
                 <ul id="menu" role="menubar">
-                    <li role="none"><a href="#home" role="menuitem">Início</a></li>
-                    <li role="none"><a href="#sobre" role="menuitem">Quem Somos</a></li>
+                    <li role="none"><a href="#inicio" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#sobre" role="menuitem">Quem somos</a></li>
                     <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
-                    <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
+                    <li role="none"><a href="#avaliacao" role="menuitem">Avaliação</a></li>
+                    <li role="none"><a href="#duvidas" role="menuitem">Dúvidas</a></li>
+                    <li role="none" class="menu-cta">
+                        <a href="#contato" role="menuitem" class="btn btn-primario btn-pequeno">Agendar</a>
+                    </li>
                 </ul>
             </nav>
+
         </div>
     </header>
 
-    <main role="main">
-        
-        <section id="home" class="hero container" aria-labelledby="hero-title">
-            <div class="hero-text"> 
-                <h1 id="hero-title">O Olhar do Neuropsicopedagogo<span class="highlight">Muda Famílias</span> <span aria-hidden="true">❤️</span></h1>
-                <p>Entenda como esse profissional pode contribuir com a ativação cognitiva da sua criança. Cuidar da mente é abrir caminhos para o futuro.</p>
-                <a href="#contato" class="btn-primary">Agendar Consulta</a>
-            </div>
-            <div class="hero-image">
-    <img src="foto1.jpg" width="250" alt="Elaine e Sandra - Neuropsicopedagogas Clínicas">
-</div>
-        </section>
+    <main id="conteudo" role="main">
 
-        <section id="sobre" class="about-section" aria-labelledby="about-title">
-            <div class="container"> 
-                
-                
-                <h2 id="about-title">Quem Somos</h2>
-                <p>Somos <strong>Elaine Romanha Pavechi</strong> e <strong>Sandra Nobre</strong>, Neuropsicopedagogas Clínicas. Nosso trabalho em Osasco, SP, é focado em entender como o cérebro absorve informações e em ajudar crianças a superarem barreiras de aprendizagem, devolvendo a elas a autoestima e o prazer de aprender.</p>
-            </div>
-<section class="gallery-grid">
+        <!-- ======================================== HERO -->
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grade">
 
-    <figure>
-        <img src="foto1.jpg" alt="Foto 1">
-    </figure>
+                <div class="hero-texto">
+                    <span class="selo-hero">Atendimento em Osasco · SP</span>
 
-    <figure>
-        <img src="foto2.jpg" alt="Foto 2">
-    </figure>
+                    <h1 id="hero-title">
+                        O olhar do neuropsicopedagogo
+                        <span class="destaque">muda famílias</span>
+                    </h1>
 
-    <figure>
-        <img src="foto3.jpg" alt="Foto 3">
-    </figure>
+                    <p class="hero-lead">
+                        Entenda como esse profissional pode contribuir com a ativação
+                        cognitiva da sua criança. Cuidar da mente é abrir caminhos
+                        para o futuro.
+                    </p>
 
-    <figure>
-        <img src="foto4.jpg" alt="Foto 4">
-    </figure>
-<figure>
-    <img src="foto5.jpg" alt="Foto 5">
-</figure>
-<figure>
-    <img src="foto6.jpg" alt="">
-</figure>
-<figure>
-    <img src="foto7.jpg" alt="">
-</figure>
-<figure>
-<img src="foto9.jpg" alt="">
-</figure>
-</section>
+                    <div class="hero-acoes">
+                        <a href="#contato" class="btn btn-primario">Agendar consulta</a>
+                        <a href="#avaliacao" class="btn btn-contorno">Como funciona a avaliação</a>
+                    </div>
 
-<!-- Lightbox -->
+                    <ul class="hero-sinais" aria-label="Diferenciais do atendimento">
+                        <li><span aria-hidden="true">✓</span> Crianças e adolescentes</li>
+                        <li><span aria-hidden="true">✓</span> Avaliação baseada em ciência</li>
+                        <li><span aria-hidden="true">✓</span> Relatório completo ao final</li>
+                    </ul>
+                </div>
 
-<div class="lightbox" id="lightbox">
-
-    <button class="close">&times;</button>
-
-    <button class="prev">&#10094;</button>
-
-    <img src="" alt="Imagem ampliada" id="lightbox-img">
-
-    <button class="next">&#10095;</button>
-
-</div>
-        </section>
-
-        <section id="servicos" class="container" aria-labelledby="services-title">
-            
-            <h2 id="services-title">Como Podemos Contribuir</h2>
-            <div class="services-grid"> 
-                
-
-                
-                <article class="service-card" tabindex="0">
-                    <div class="icon" aria-hidden="true">🧠</div>
-                    <h3>Desenvolvimento Cognitivo</h3>
-                    <p>Estímulo de funções vitais como memória, atenção, foco, raciocínio lógico e planejamento estratégico.</p>
-                </article>
-
-                <article class="service-card" tabindex="0">
-                    <div class="icon" aria-hidden="true">💡</div>
-                    <h3>Aprendizagem com Significado</h3>
-                    <p>Técnicas que transformam o estudo em algo prático e compreensível, respeitando o ritmo da criança.</p>
-                </article>
-
-                <article class="service-card" tabindex="0">
-                    <div class="icon" aria-hidden="true">💛</div>
-                    <h3>Emoções e Autoestima</h3>
-                    <p>Trabalho integrado para que o estudante ganhe confiança em si mesmo e perca o medo de errar.</p>
-                </article>
-
-                <article class="service-card" tabindex="0">
-                    <div class="icon" aria-hidden="true">👥</div>
-                    <h3>Parceria com a Família</h3>
-                    <p>Orientação próxima aos pais para que o suporte e a evolução continuem também dentro de casa.</p>
-                </article>
+                <figure class="hero-foto">
+                    <img src="sandra e elaine.jpg" width="419" height="558"
+                         alt="Elaine Romanha Pavechi e Sandra Nobre, neuropsicopedagogas clínicas, no consultório">
+                    <figcaption>
+                        <strong>Elaine Romanha Pavechi</strong> e <strong>Sandra Nobre</strong>
+                        <span>Neuropsicopedagogas Clínicas</span>
+                    </figcaption>
+                </figure>
 
             </div>
         </section>
 
-<section id="avaliacao" class="assessment-section">
-    <div class="container">
+        <!-- ======================================== QUEM SOMOS -->
+        <section id="sobre" class="secao secao-suave" aria-labelledby="sobre-title">
+            <div class="container sobre-grade">
 
-
-    <h2>Avaliação Neuropsicopedagógica</h2>
-
-    <p>
-        A Avaliação Neuropsicopedagógica tem como objetivo identificar e compreender
-        as dificuldades que podem estar interferindo no processo de aprendizagem da criança ou adolescente.
-        Por meio de procedimentos científicos e observações clínicas, realizamos um mapeamento das habilidades cognitivas,
-        acadêmicas, emocionais e motoras, permitindo uma compreensão ampla do desenvolvimento do estudante.
-    </p>
-
-    <div class="assessment-grid">
-
-        <div class="assessment-card">
-            <h3>📋 Como Funciona</h3>
-            <ul>
-                <li>Até 10 sessões de avaliação.</li>
-                <li>As 2 primeiras sessões são destinadas à Anamnese com os responsáveis.</li>
-                <li>Coleta de informações sobre o histórico de desenvolvimento e aprendizagem.</li>
-                <li>Aplicação de instrumentos e testes específicos.</li>
-            </ul>
-        </div>
-
-        <div class="assessment-card">
-            <h3>🧠 O Que é Avaliado</h3>
-            <ul>
-                <li>Atenção e concentração.</li>
-                <li>Memória.</li>
-                <li>Funções executivas.</li>
-                <li>Habilidades linguísticas.</li>
-                <li>Leitura e escrita.</li>
-                <li>Habilidades matemáticas.</li>
-                <li>Coordenação motora.</li>
-                <li>Aspectos socioemocionais.</li>
-            </ul>
-        </div>
-
-        <div class="assessment-card">
-            <h3>🔬 Instrumentos Utilizados</h3>
-            <ul>
-                <li>Entrevistas com familiares.</li>
-                <li>Entrevistas com o paciente.</li>
-                <li>Observação clínica.</li>
-                <li>Testes padronizados com base científica.</li>
-                <li>Protocolos específicos de avaliação neuropsicopedagógica.</li>
-            </ul>
-        </div>
-
-        <div class="assessment-card">
-            <h3>🎯 Público-Alvo</h3>
-            <ul>
-                <li>Crianças e adolescentes.</li>
-                <li>Dificuldades persistentes de aprendizagem.</li>
-                <li>Baixo desempenho escolar.</li>
-                <li>Déficits de atenção.</li>
-                <li>Atrasos no desenvolvimento cognitivo.</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="report-box">
-        <h3>📑 Relatório Avaliativo Neuropsicopedagógico (RAN)</h3>
-
-        <p>
-            Ao final do processo é elaborado o <strong>Relatório Avaliativo Neuropsicopedagógico (RAN)</strong>,
-            contendo a descrição de todo o percurso avaliativo, resultados observados,
-            orientações para a família, escola e demais profissionais envolvidos.
-        </p>
-
-        <p>
-            Quando pertinente, hipóteses diagnósticas poderão ser descritas com base
-            nos critérios estabelecidos pelo <strong>DSM-5</strong>, sempre respeitando
-            os limites de atuação da Neuropsicopedagogia.
-        </p>
-    </div>
-
-</div>
-
-
-</section>
-
-
-        <section id="contato" class="container" aria-labelledby="contact-title">
-            
-            <h2 id="contact-title">Entre em Contato</h2>
-            <p class="contact-sub">Preencha o formulário abaixo para tirar dúvidas ou agendar uma sessão em Osasco, SP.</p>
-            
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">E-mail para retorno:</label>
-                    <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                <div class="sobre-foto">
+                    <img src="foto4.jpg" width="332" height="444"
+                         alt="Sessão de avaliação neuropsicopedagógica com uma criança">
+                    <span class="sobre-selo" aria-hidden="true">🧠</span>
                 </div>
 
-                <div class="form-group">
-                    <label for="mensagem">Como podemos ajudar sua família?</label>
-                    <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte um pouco sobre as necessidades da criança..."></textarea>
+                <div class="sobre-texto">
+                    <p class="rotulo">Quem somos</p>
+                    <h2 id="sobre-title">Duas profissionais, um mesmo olhar cuidadoso</h2>
+
+                    <p>
+                        Somos <strong>Elaine Romanha Pavechi</strong> e
+                        <strong>Sandra Nobre</strong>, Neuropsicopedagogas Clínicas.
+                        Nosso trabalho em Osasco, SP, é focado em entender como o
+                        cérebro absorve informações e em ajudar crianças a superarem
+                        barreiras de aprendizagem, devolvendo a elas a autoestima e
+                        o prazer de aprender.
+                    </p>
+
+                    <ul class="lista-marcas">
+                        <li>Mapeamento das habilidades cognitivas, acadêmicas,
+                            emocionais e motoras</li>
+                        <li>Instrumentos e testes padronizados, com base científica</li>
+                        <li>Orientação para a família, a escola e a equipe que
+                            acompanha a criança</li>
+                        <li>Respeito aos limites de atuação da Neuropsicopedagogia</li>
+                    </ul>
+
+                    <a href="#contato" class="btn btn-primario">Falar com a equipe</a>
                 </div>
 
-                <button type="submit" class="btn-primary">Enviar Mensagem</button>
-            </form>
+            </div>
+        </section>
+
+        <!-- ======================================== SERVIÇOS -->
+        <section id="servicos" class="secao" aria-labelledby="servicos-title">
+            <div class="container">
+                <p class="rotulo centralizado">Como podemos contribuir</p>
+                <h2 id="servicos-title" class="centralizado">Áreas de atuação</h2>
+                <p class="secao-lead centralizado">
+                    Cada criança aprende de um jeito. Nosso trabalho é entender
+                    qual é esse jeito — e trabalhar a partir dele.
+                </p>
+
+                <div class="grade-cards">
+
+                    <article class="card card-violeta" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">🧠</div>
+                        <h3>Desenvolvimento cognitivo</h3>
+                        <p>Estímulo de funções vitais como memória, atenção, foco,
+                           raciocínio lógico e planejamento estratégico.</p>
+                    </article>
+
+                    <article class="card card-laranja" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">💡</div>
+                        <h3>Aprendizagem com significado</h3>
+                        <p>Técnicas que transformam o estudo em algo prático e
+                           compreensível, respeitando o ritmo da criança.</p>
+                    </article>
+
+                    <article class="card card-ciano" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">💛</div>
+                        <h3>Emoções e autoestima</h3>
+                        <p>Trabalho integrado para que o estudante ganhe confiança
+                           em si mesmo e perca o medo de errar.</p>
+                    </article>
+
+                    <article class="card card-rosa" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">👥</div>
+                        <h3>Parceria com a família</h3>
+                        <p>Orientação próxima aos pais para que o suporte e a
+                           evolução continuem também dentro de casa.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== ETAPAS -->
+        <section id="como-funciona" class="secao secao-escura" aria-labelledby="etapas-title">
+            <div class="container">
+                <p class="rotulo rotulo-claro centralizado">Do primeiro contato ao relatório</p>
+                <h2 id="etapas-title" class="titulo-claro centralizado">Como funciona, passo a passo</h2>
+
+                <ol class="grade-etapas">
+                    <li>
+                        <span class="etapa-numero">1</span>
+                        <h3>Primeiro contato</h3>
+                        <p>Você conta o que tem observado. Juntos, verificamos se a
+                           avaliação é o caminho certo agora.</p>
+                    </li>
+                    <li>
+                        <span class="etapa-numero">2</span>
+                        <h3>Anamnese</h3>
+                        <p>As duas primeiras sessões são dedicadas a ouvir os
+                           responsáveis e reunir o histórico de desenvolvimento.</p>
+                    </li>
+                    <li>
+                        <span class="etapa-numero">3</span>
+                        <h3>Sessões de avaliação</h3>
+                        <p>Aplicação de instrumentos e testes específicos, no ritmo
+                           que a criança precisa, até 10 sessões.</p>
+                    </li>
+                    <li>
+                        <span class="etapa-numero">4</span>
+                        <h3>Relatório e orientação</h3>
+                        <p>Devolvemos o RAN, com resultados e recomendações para a
+                           família, a escola e os demais profissionais.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ======================================== AVALIAÇÃO -->
+        <section id="avaliacao" class="secao secao-suave" aria-labelledby="avaliacao-title">
+            <div class="container">
+                <p class="rotulo centralizado">Serviço principal</p>
+                <h2 id="avaliacao-title" class="centralizado">Avaliação Neuropsicopedagógica</h2>
+                <p class="secao-lead centralizado">
+                    Tem como objetivo identificar e compreender as dificuldades que
+                    podem estar interferindo no processo de aprendizagem da criança
+                    ou adolescente. Por meio de procedimentos científicos e
+                    observações clínicas, fazemos um mapeamento das habilidades
+                    cognitivas, acadêmicas, emocionais e motoras.
+                </p>
+
+                <div class="grade-cards grade-avaliacao">
+
+                    <article class="card card-violeta" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">📋</div>
+                        <h3>Como funciona</h3>
+                        <ul>
+                            <li>Até 10 sessões de avaliação.</li>
+                            <li>As 2 primeiras são de anamnese com os responsáveis.</li>
+                            <li>Coleta do histórico de desenvolvimento e aprendizagem.</li>
+                            <li>Aplicação de instrumentos e testes específicos.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-laranja" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">🧠</div>
+                        <h3>O que é avaliado</h3>
+                        <ul>
+                            <li>Atenção e concentração</li>
+                            <li>Memória</li>
+                            <li>Funções executivas</li>
+                            <li>Habilidades linguísticas</li>
+                            <li>Leitura e escrita</li>
+                            <li>Habilidades matemáticas</li>
+                            <li>Coordenação motora</li>
+                            <li>Aspectos socioemocionais</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-ciano" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">🔬</div>
+                        <h3>Instrumentos utilizados</h3>
+                        <ul>
+                            <li>Entrevistas com familiares</li>
+                            <li>Entrevistas com o paciente</li>
+                            <li>Observação clínica</li>
+                            <li>Testes padronizados com base científica</li>
+                            <li>Protocolos específicos de avaliação</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-verde" tabindex="0">
+                        <div class="card-icone" aria-hidden="true">🎯</div>
+                        <h3>Público-alvo</h3>
+                        <ul>
+                            <li>Crianças e adolescentes</li>
+                            <li>Dificuldades persistentes de aprendizagem</li>
+                            <li>Baixo desempenho escolar</li>
+                            <li>Déficits de atenção</li>
+                            <li>Atrasos no desenvolvimento cognitivo</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <div class="caixa-relatorio">
+                    <div class="caixa-relatorio-cab" aria-hidden="true">📑</div>
+                    <div>
+                        <h3>Relatório Avaliativo Neuropsicopedagógico (RAN)</h3>
+                        <p>
+                            Ao final do processo é elaborado o
+                            <strong>Relatório Avaliativo Neuropsicopedagógico</strong>,
+                            contendo a descrição de todo o percurso avaliativo, os
+                            resultados observados e as orientações para a família,
+                            a escola e os demais profissionais envolvidos.
+                        </p>
+                        <p>
+                            Quando pertinente, hipóteses diagnósticas poderão ser
+                            descritas com base nos critérios estabelecidos pelo
+                            <strong>DSM-5</strong>, sempre respeitando os limites de
+                            atuação da Neuropsicopedagogia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== GALERIA -->
+        <section id="trabalho" class="secao" aria-labelledby="trabalho-title">
+            <div class="container">
+                <p class="rotulo centralizado">Nosso trabalho</p>
+                <h2 id="trabalho-title" class="centralizado">O dia a dia do consultório</h2>
+                <p class="secao-lead centralizado">
+                    Clique em qualquer imagem para ver em tamanho maior.
+                </p>
+
+                <div class="galeria" id="galeria">
+                    <figure tabindex="0" role="button" aria-label="Ampliar: no consultório">
+                        <img src="sandra e elaine.jpg" width="419" height="558"
+                             alt="Elaine e Sandra reunidas no consultório">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: sessão com criança">
+                        <img src="foto4.jpg" width="332" height="444"
+                             alt="Sessão de estimulação com material lúdico">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: atendimento">
+                        <img src="foto6.jpg" width="336" height="439"
+                             alt="Elaine durante uma atividade ao ar livre">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: as duas profissionais">
+                        <img src="foto1.jpg" width="208" height="266"
+                             alt="Elaine e Sandra juntas">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: empatia">
+                        <img src="foto7.jpg" width="331" height="439"
+                             alt="Imagem sobre empatia e acolhimento">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== CONTEÚDOS -->
+        <section id="conteudos" class="secao secao-suave" aria-labelledby="conteudos-title">
+            <div class="container">
+                <p class="rotulo centralizado">Conteúdos</p>
+                <h2 id="conteudos-title" class="centralizado">O que compartilhamos</h2>
+                <p class="secao-lead centralizado">
+                    Material produzido pelas nossas profissionais para famílias e
+                    escolas. Clique para ampliar.
+                </p>
+
+                <div class="galeria galeria-conteudos" id="galeria-conteudos">
+                    <figure tabindex="0" role="button" aria-label="Ampliar: o que faz o neuropsicopedagogo">
+                        <img src="foto2.jpg" width="324" height="429"
+                             alt="Infográfico: o que faz o neuropsicopedagogo">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: infância emocionalmente saudável">
+                        <img src="foto5.jpg" width="333" height="437"
+                             alt="Infográfico: o que constrói uma infância emocionalmente saudável">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: autismo e rotina">
+                        <img src="foto8.jpg" width="330" height="445"
+                             alt="Infográfico: autismo e rotina, por Elaine Romanha">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: o que é capacitismo">
+                        <img src="foto9.jpg" width="331" height="443"
+                             alt="Infográfico: o que é capacitismo e como evitar">
+                    </figure>
+                    <figure tabindex="0" role="button" aria-label="Ampliar: escola ontem e hoje">
+                        <img src="foto3.jpg" width="331" height="439"
+                             alt="Comparação entre a escola de 1962 e a de 2026">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== DÚVIDAS -->
+        <section id="duvidas" class="secao" aria-labelledby="duvidas-title">
+            <div class="container container-estreito">
+                <p class="rotulo centralizado">Dúvidas frequentes</p>
+                <h2 id="duvidas-title" class="centralizado">Antes de agendar</h2>
+
+                <div class="faq" id="faq">
+
+                    <details class="faq-item">
+                        <summary>Quando procurar um neuropsicopedagogo?</summary>
+                        <p>Quando a dificuldade persiste apesar do esforço: a criança
+                           evita ler, "não presta atenção", tem baixo rendimento,
+                           sofre com cobranças ou perdeu o interesse por aprender.
+                           Quanto antes isso é entendido, mais curto é o caminho.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>A avaliação dói ou assusta a criança?</summary>
+                        <p>Não. As sessões são feitas com material lúdico e no ritmo
+                           da criança. A maior parte do tempo é jogos, conversas e
+                           tarefas adequadas à idade — nada invasivo.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Quanto tempo demora?</summary>
+                        <p>São até 10 sessões. As duas primeiras são de anamnese com
+                           os responsáveis; as demais são de aplicação dos
+                           instrumentos. A frequência é combinada no primeiro contato.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>O relatório serve para a escola?</summary>
+                        <p>Sim. O RAN é escrito para ser usado pela família e pela
+                           equipe escolar, com orientações práticas. Quando pertinente,
+                           inclui hipóteses diagnósticas com base no DSM-5, dentro dos
+                           limites da Neuropsicopedagogia.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Vocês atendem online?</summary>
+                        <p>O atendimento é presencial, em Osasco/SP. No primeiro
+                           contato verificamos juntos a melhor forma de organizar as
+                           sessões para a rotina da sua família.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Preciso levar algum documento?</summary>
+                        <p>Na anamnese é útil ter em mãos boletins, relatórios da
+                           escola, avaliações anteriores e qualquer laudo que já tenha
+                           sido emitido. Esses materiais ajudam a montar o histórico.</p>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== CONTATO -->
+        <section id="contato" class="secao secao-suave" aria-labelledby="contato-title">
+            <div class="container">
+
+                <p class="rotulo centralizado">Contato</p>
+                <h2 id="contato-title" class="centralizado">Vamos conversar sobre a sua criança</h2>
+                <p class="secao-lead centralizado">
+                    Preencha o formulário e escolha o canal para enviar. Respondemos
+                    pelo retorno que você indicar.
+                </p>
+
+                <div class="contato-grade">
+
+                    <form id="form-contato" novalidate>
+                        <div class="campo">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome" name="nome" required
+                                   autocomplete="name" maxlength="80"
+                                   placeholder="Como você se chama">
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone ou WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone"
+                                   autocomplete="tel" maxlength="20"
+                                   placeholder="(11) 90000-0000">
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">E-mail <span class="opcional">(opcional)</span></label>
+                            <input type="email" id="email" name="email"
+                                   autocomplete="email" maxlength="120"
+                                   placeholder="seuemail@exemplo.com">
+                        </div>
+
+                        <div class="campo">
+                            <label for="mensagem">Como podemos ajudar sua família?</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required
+                                      maxlength="1200"
+                                      placeholder="Conte um pouco sobre o que você tem observado..."></textarea>
+                        </div>
+
+                        <p id="form-erro" class="form-erro" role="alert" hidden></p>
+
+                        <button type="submit" class="btn btn-primario btn-block" id="btn-enviar">
+                            Preparar mensagem
+                        </button>
+
+                        <p class="form-nota">
+                            Seus dados são usados só para responder você. Este site
+                            não guarda nem envia nada automaticamente.
+                        </p>
+                    </form>
+
+                    <aside class="contato-painel" aria-label="Outros canais de contato">
+
+                        <div class="painel-bloco">
+                            <h3>Onde estamos</h3>
+                            <p class="endereco">
+                                <strong>Osasco</strong> — São Paulo, Brasil<br>
+                                Atendimento presencial, com horário agendado.
+                            </p>
+                            <div class="mapa">
+                                <iframe
+                                    title="Mapa de Osasco, São Paulo"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=-46.8450%2C-23.5620%2C-46.7450%2C-23.5000&amp;layer=mapnik&amp;marker=-23.5325%2C-46.7917"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <p class="mapa-aviso">
+                                Ponto aproximado da cidade.
+                                <a href="https://www.openstreetmap.org/?mlat=-23.5325&amp;mlon=-46.7917#map=13/-23.5325/-46.7917"
+                                   target="_blank" rel="noopener noreferrer">Abrir mapa maior</a>
+                            </p>
+                        </div>
+
+                        <div class="painel-bloco" id="canal-instagram">
+                            <h3>Instagram</h3>
+                            <p>Conteúdos e bastidores do consultório.</p>
+                            <a class="btn btn-contorno btn-block" id="link-instagram"
+                               href="https://www.instagram.com/rnconectividade"
+                               target="_blank" rel="noopener noreferrer">
+                                Acompanhar @rnconectividade
+                            </a>
+                        </div>
+
+                        <div class="painel-bloco" id="canal-whatsapp" hidden>
+                            <h3>WhatsApp</h3>
+                            <p>Resposta rápida em horário de atendimento.</p>
+                            <a class="btn btn-zap btn-block" id="link-whatsapp" href="#"
+                               target="_blank" rel="noopener noreferrer">
+                                Chamar no WhatsApp
+                            </a>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
         </section>
 
     </main>
 
-<footer role="contentinfo">
-    <div class="container footer-container">
-        <p>&copy; 2026 Elaine & Sandra - Neuropsicopedagogia Clínica.</p>
-        <p>Atendimentos em Osasco, SP, Brasil.</p>
+    <!-- ============================================ RODAPÉ -->
+    <footer role="contentinfo">
+        <div class="container rodape-grade">
 
-        <p>
-            <a href="https://www.instagram.com/rnconectividade?igsh=MXEyOWxycng3aTducQ%3D%3D"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="instagram-link">
-               📷 Siga-nos no Instagram
-            </a>
-        </p>
+            <div class="rodape-marca">
+                <img src="foto.jpg" alt="" width="46" height="46" aria-hidden="true">
+                <div>
+                    <strong>Elaine &amp; Sandra</strong>
+                    <span>Neuropsicopedagogia Clínica</span>
+                </div>
+            </div>
 
+            <nav class="rodape-nav" aria-label="Navegação do rodapé">
+                <a href="#sobre">Quem somos</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#avaliacao">Avaliação</a>
+                <a href="#duvidas">Dúvidas</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <div class="rodape-redes">
+                <a href="https://www.instagram.com/rnconectividade?igsh=MXEyOWxycng3aTducQ%3D%3D"
+                   target="_blank" rel="noopener noreferrer" class="link-instagram">
+                    📷 Instagram
+                </a>
+            </div>
+
+        </div>
+
+        <div class="rodape-base">
+            <div class="container">
+                <p>© <span id="ano">2026</span> Elaine &amp; Sandra — Neuropsicopedagogia Clínica · Osasco, SP</p>
+                <p class="rodape-menor">Elaine Romanha Pavechi · Sandra Nobre</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+         aria-label="Imagem ampliada" hidden>
+        <button class="lightbox-btn lightbox-fechar" type="button"
+                aria-label="Fechar imagem">&times;</button>
+        <button class="lightbox-btn lightbox-anterior" type="button"
+                aria-label="Imagem anterior">&#10094;</button>
+        <img src="" alt="" id="lightbox-img">
+        <button class="lightbox-btn lightbox-proxima" type="button"
+                aria-label="Próxima imagem">&#10095;</button>
+        <p class="lightbox-legenda" id="lightbox-legenda"></p>
     </div>
-</footer>
 
     <script src="script.js"></script>
 </body>
