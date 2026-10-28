@@ -7,7 +7,7 @@
     <title>Elaine &amp; Sandra — Neuropsicopedagogia Clínica em Osasco/SP</title>
     <meta name="description" content="Avaliação neuropsicopedagógica para crianças e adolescentes em Osasco, SP. Elaine Romanha Pavechi e Sandra Nobre identificam as dificuldades de aprendizagem e devolvem a autoestima de aprender.">
     <meta name="author" content="Elaine Romanha Pavechi e Sandra Nobre">
-    <meta name="theme-color" content="#5b21b6">
+    <meta name="theme-color" content="#102f43">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
@@ -20,7 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=profissional-20261028">
+    <link rel="stylesheet" href="profissional.css?v=profissional-20261028">
 
     <script type="application/ld+json">
     {
@@ -46,6 +47,18 @@
 </head>
 
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icones-definicoes" aria-hidden="true">
+        <defs>
+            <symbol id="icone-mente" viewBox="0 0 32 32"><path d="M16 7c-4-7-12-2-10 4-6 3-3 11 1 11-1 6 6 8 9 4 3 4 10 2 9-4 4 0 7-8 1-11 2-6-6-11-10-4Z M16 7v19 M10 11c4 0 2 6 6 6m6-6c-4 0-2 6-6 6M8 21c3-3 5 0 8 0m8 0c-3-3-5 0-8 0"/></symbol>
+            <symbol id="icone-livro" viewBox="0 0 32 32"><path d="M16 9C12 5 6 5 3 6v20c4-2 9-1 13 2 4-3 9-4 13-2V6c-3-1-9-1-13 3Zm0 0v19M7 11l5 1m-5 5 5 1m8-6 5-1m-5 7 5-1"/></symbol>
+            <symbol id="icone-coracao" viewBox="0 0 32 32"><path d="M16 27 5 16C-3 7 10-2 16 8c6-10 19-1 11 8Z M6 16h6l3-5 3 10 3-5h5"/></symbol>
+            <symbol id="icone-familia" viewBox="0 0 32 32"><circle cx="11" cy="9" r="4"/><circle cx="23" cy="11" r="3"/><path d="M3 27v-4c0-9 16-9 16 0v4m3-9c6 0 8 3 7 9M8 27v-5m6 5v-5"/></symbol>
+            <symbol id="icone-prancheta" viewBox="0 0 32 32"><path d="M11 6H6v23h20V6h-5M11 3h10v7H11Zm-1 13h12m-12 6h8"/></symbol>
+            <symbol id="icone-pesquisa" viewBox="0 0 32 32"><circle cx="14" cy="13" r="9"/><path d="m21 20 8 9M9 14l3 3 7-8"/></symbol>
+            <symbol id="icone-alvo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><path d="m16 16 13-13m-6 0h6v6"/></symbol>
+            <symbol id="icone-relatorio" viewBox="0 0 32 32"><path d="M19 3H6v26h20V10Zm0 0v7h7M11 16h10m-10 5h10"/></symbol>
+        </defs>
+    </svg>
 
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
@@ -63,18 +76,18 @@
 
             <nav id="nav" class="nav" role="navigation" aria-label="Navegação principal">
                 <button id="btn-mobile" type="button" aria-label="Abrir menu"
-                        aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                        aria-controls="menu" aria-expanded="false">
                     <span id="hamburger" aria-hidden="true"></span>
                 </button>
 
-                <ul id="menu" role="menubar">
-                    <li role="none"><a href="#inicio" role="menuitem">Início</a></li>
-                    <li role="none"><a href="#sobre" role="menuitem">Quem somos</a></li>
-                    <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
-                    <li role="none"><a href="#avaliacao" role="menuitem">Avaliação</a></li>
-                    <li role="none"><a href="#duvidas" role="menuitem">Dúvidas</a></li>
-                    <li role="none" class="menu-cta">
-                        <a href="#contato" role="menuitem" class="btn btn-primario btn-pequeno">Agendar</a>
+                <ul id="menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Quem somos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#avaliacao">Avaliação</a></li>
+                    <li><a href="#duvidas">Dúvidas</a></li>
+                    <li class="menu-cta">
+                        <a href="#contato" class="btn btn-primario btn-pequeno">Vamos conversar <span aria-hidden="true">↗</span></a>
                     </li>
                 </ul>
             </nav>
@@ -82,7 +95,7 @@
         </div>
     </header>
 
-    <main id="conteudo" role="main">
+    <main id="conteudo" tabindex="-1">
 
         <!-- ======================================== HERO -->
         <section id="inicio" class="hero" aria-labelledby="hero-title">
@@ -92,18 +105,17 @@
                     <span class="selo-hero">Atendimento em Osasco · SP</span>
 
                     <h1 id="hero-title">
-                        O olhar do neuropsicopedagogo
-                        <span class="destaque">muda famílias</span>
+                        Um olhar cuidadoso para
+                        <span class="destaque">cada jeito de aprender.</span>
                     </h1>
 
                     <p class="hero-lead">
-                        Entenda como esse profissional pode contribuir com a ativação
-                        cognitiva da sua criança. Cuidar da mente é abrir caminhos
-                        para o futuro.
+                        Neuropsicopedagogia Clínica para compreender as dificuldades,
+                        acolher a família e construir novos caminhos de aprendizagem.
                     </p>
 
                     <div class="hero-acoes">
-                        <a href="#contato" class="btn btn-primario">Agendar consulta</a>
+                        <a href="#contato" class="btn btn-primario">Conversar sobre uma avaliação <span aria-hidden="true">↗</span></a>
                         <a href="#avaliacao" class="btn btn-contorno">Como funciona a avaliação</a>
                     </div>
 
@@ -133,7 +145,7 @@
                 <div class="sobre-foto">
                     <img src="foto4.jpg" width="332" height="444"
                          alt="Sessão de avaliação neuropsicopedagógica com uma criança">
-                    <span class="sobre-selo" aria-hidden="true">🧠</span>
+                    <span class="sobre-selo" aria-hidden="true">E&amp;S</span>
                 </div>
 
                 <div class="sobre-texto">
@@ -176,29 +188,29 @@
 
                 <div class="grade-cards">
 
-                    <article class="card card-violeta" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">🧠</div>
+                    <article class="card card-violeta">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-mente"/></svg></div>
                         <h3>Desenvolvimento cognitivo</h3>
                         <p>Estímulo de funções vitais como memória, atenção, foco,
                            raciocínio lógico e planejamento estratégico.</p>
                     </article>
 
-                    <article class="card card-laranja" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">💡</div>
+                    <article class="card card-laranja">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-livro"/></svg></div>
                         <h3>Aprendizagem com significado</h3>
                         <p>Técnicas que transformam o estudo em algo prático e
                            compreensível, respeitando o ritmo da criança.</p>
                     </article>
 
-                    <article class="card card-ciano" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">💛</div>
+                    <article class="card card-ciano">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-coracao"/></svg></div>
                         <h3>Emoções e autoestima</h3>
                         <p>Trabalho integrado para que o estudante ganhe confiança
                            em si mesmo e perca o medo de errar.</p>
                     </article>
 
-                    <article class="card card-rosa" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">👥</div>
+                    <article class="card card-rosa">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-familia"/></svg></div>
                         <h3>Parceria com a família</h3>
                         <p>Orientação próxima aos pais para que o suporte e a
                            evolução continuem também dentro de casa.</p>
@@ -258,8 +270,8 @@
 
                 <div class="grade-cards grade-avaliacao">
 
-                    <article class="card card-violeta" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">📋</div>
+                    <article class="card card-violeta">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-prancheta"/></svg></div>
                         <h3>Como funciona</h3>
                         <ul>
                             <li>Até 10 sessões de avaliação.</li>
@@ -269,8 +281,8 @@
                         </ul>
                     </article>
 
-                    <article class="card card-laranja" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">🧠</div>
+                    <article class="card card-laranja">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-mente"/></svg></div>
                         <h3>O que é avaliado</h3>
                         <ul>
                             <li>Atenção e concentração</li>
@@ -284,8 +296,8 @@
                         </ul>
                     </article>
 
-                    <article class="card card-ciano" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">🔬</div>
+                    <article class="card card-ciano">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-pesquisa"/></svg></div>
                         <h3>Instrumentos utilizados</h3>
                         <ul>
                             <li>Entrevistas com familiares</li>
@@ -296,8 +308,8 @@
                         </ul>
                     </article>
 
-                    <article class="card card-verde" tabindex="0">
-                        <div class="card-icone" aria-hidden="true">🎯</div>
+                    <article class="card card-verde">
+                        <div class="card-icone" aria-hidden="true"><svg><use href="#icone-alvo"/></svg></div>
                         <h3>Público-alvo</h3>
                         <ul>
                             <li>Crianças e adolescentes</li>
@@ -311,7 +323,7 @@
                 </div>
 
                 <div class="caixa-relatorio">
-                    <div class="caixa-relatorio-cab" aria-hidden="true">📑</div>
+                    <div class="caixa-relatorio-cab" aria-hidden="true"><svg><use href="#icone-relatorio"/></svg></div>
                     <div>
                         <h3>Relatório Avaliativo Neuropsicopedagógico (RAN)</h3>
                         <p>
@@ -464,8 +476,8 @@
                 <p class="rotulo centralizado">Contato</p>
                 <h2 id="contato-title" class="centralizado">Vamos conversar sobre a sua criança</h2>
                 <p class="secao-lead centralizado">
-                    Preencha o formulário e escolha o canal para enviar. Respondemos
-                    pelo retorno que você indicar.
+                    Prepare sua mensagem e envie pelo Instagram. Este formulário
+                    não faz agendamento nem envia mensagens automaticamente.
                 </p>
 
                 <div class="contato-grade">
@@ -479,7 +491,7 @@
                         </div>
 
                         <div class="campo">
-                            <label for="telefone">Telefone ou WhatsApp</label>
+                            <label for="telefone">Telefone ou WhatsApp <span class="opcional">(opcional)</span></label>
                             <input type="tel" id="telefone" name="telefone"
                                    autocomplete="tel" maxlength="20"
                                    placeholder="(11) 90000-0000">
@@ -496,7 +508,7 @@
                             <label for="mensagem">Como podemos ajudar sua família?</label>
                             <textarea id="mensagem" name="mensagem" rows="5" required
                                       maxlength="1200"
-                                      placeholder="Conte um pouco sobre o que você tem observado..."></textarea>
+                                      placeholder="Conte, de forma breve, como podemos ajudar. Evite dados sensíveis da criança."></textarea>
                         </div>
 
                         <p id="form-erro" class="form-erro" role="alert" hidden></p>
@@ -506,9 +518,20 @@
                         </button>
 
                         <p class="form-nota">
-                            Seus dados são usados só para responder você. Este site
-                            não guarda nem envia nada automaticamente.
+                            Os campos não são salvos pelo site. Não inclua laudos, documentos
+                            ou informações de saúde detalhadas. O envio é feito por você no canal externo.
                         </p>
+                        <div id="mensagem-pronta" class="mensagem-pronta" hidden>
+                            <h3>Sua mensagem está pronta</h3>
+                            <p id="envio-status" role="status">Nada foi enviado. Copie o texto e cole na conversa do Instagram.</p>
+                            <label for="texto-pronto">Texto para copiar e enviar</label>
+                            <textarea id="texto-pronto" rows="8" readonly></textarea>
+                            <div class="envio-acoes">
+                                <button type="button" class="btn btn-contorno" id="copiar-mensagem">Copiar mensagem</button>
+                                <a class="btn btn-primario" id="enviar-canal" href="https://www.instagram.com/rnconectividade" target="_blank" rel="noopener noreferrer">Abrir Instagram ↗</a>
+                            </div>
+                        </div>
+                        <noscript><p>Para preparar o texto automaticamente, ative o JavaScript. Você também pode falar diretamente pelo link do Instagram ao lado.</p></noscript>
                     </form>
 
                     <aside class="contato-painel" aria-label="Outros canais de contato">
@@ -599,17 +622,17 @@
 
     <!-- ============================================ LIGHTBOX -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
-         aria-label="Imagem ampliada" hidden>
+         aria-label="Imagem ampliada" aria-describedby="lightbox-legenda" hidden>
         <button class="lightbox-btn lightbox-fechar" type="button"
                 aria-label="Fechar imagem">&times;</button>
         <button class="lightbox-btn lightbox-anterior" type="button"
                 aria-label="Imagem anterior">&#10094;</button>
-        <img src="" alt="" id="lightbox-img">
+        <img alt="" id="lightbox-img">
         <button class="lightbox-btn lightbox-proxima" type="button"
                 aria-label="Próxima imagem">&#10095;</button>
-        <p class="lightbox-legenda" id="lightbox-legenda"></p>
+        <p class="lightbox-legenda" id="lightbox-legenda" aria-live="polite"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=profissional-20261028"></script>
 </body>
 </html>

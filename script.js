@@ -1,11 +1,12 @@
 /* ============================================================
    Elaine & Sandra — Neuropsicopedagogia Clínica
 
-   Menu móvel, galeria com lightbox, formulário de contato que
-   entrega a mensagem pelo canal disponível e cabeçalho fixo.
+    Menu móvel, galeria com lightbox, preparação de contato com
+    envio manual pelo canal disponível e cabeçalho fixo.
    ============================================================ */
 
 'use strict';
+document.documentElement.classList.add('js');
 
 /* -------------------------------------------------------------
    CONFIGURAÇÃO — é aqui que o cliente mexe.
@@ -33,29 +34,27 @@ atualizarCabecalho();
 const btnMobile = document.getElementById('btn-mobile');
 const nav = document.getElementById('nav');
 
-function alternarMenu(evento) {
-    // No celular o toque dispara "touchstart" e depois "click";
-    // sem prevenir, o menu abriria e fecharia na mesma hora.
-    if (evento && evento.type === 'touchstart') evento.preventDefault();
-
-    nav.classList.toggle('active');
-    const aberto = nav.classList.contains('active');
-
+function definirMenu(aberto) {
+    nav.classList.toggle('active', aberto);
     btnMobile.setAttribute('aria-expanded', String(aberto));
     btnMobile.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
 }
 
 if (btnMobile && nav) {
-    btnMobile.addEventListener('click', alternarMenu);
-    btnMobile.addEventListener('touchstart', alternarMenu, { passive: false });
+    btnMobile.addEventListener('click', function () {
+        definirMenu(!nav.classList.contains('active'));
+    });
 
     // Fecha o menu ao escolher uma seção
     document.querySelectorAll('#menu a').forEach(function (link) {
         link.addEventListener('click', function () {
             if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                btnMobile.setAttribute('aria-expanded', 'false');
-                btnMobile.setAttribute('aria-label', 'Abrir menu');
+                definirMenu(false);
+                const destino = document.querySelector(link.getAttribute('href'));
+                if (destino) {
+                    destino.setAttribute('tabindex', '-1');
+                    destino.focus({ preventScroll: true });
+                }
             }
         });
     });
@@ -63,8 +62,7 @@ if (btnMobile && nav) {
     // Fecha ao pressionar Esc, para quem navega por teclado
     document.addEventListener('keydown', function (ev) {
         if (ev.key === 'Escape' && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            btnMobile.setAttribute('aria-expanded', 'false');
+            definirMenu(false);
             btnMobile.focus();
         }
     });
@@ -72,9 +70,16 @@ if (btnMobile && nav) {
     // Fecha se a janela voltar para o formato de computador
     window.addEventListener('resize', function () {
         if (window.innerWidth > 860 && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            btnMobile.setAttribute('aria-expanded', 'false');
+            definirMenu(false);
         }
+    });
+    document.addEventListener('click', function (ev) {
+        if (!nav.contains(ev.target)) definirMenu(false);
+    });
+    nav.addEventListener('focusout', function () {
+        requestAnimationFrame(function () {
+            if (!nav.contains(document.activeElement)) definirMenu(false);
+        });
     });
 }
 
@@ -97,6 +102,11 @@ if (btnMobile && nav) {
 
     let atual = 0;
     let focoAnterior = null;
+    let overflowAnterior = '';
+    const fundo = Array.from(document.body.children).filter(function (el) {
+        return el !== lightbox && !['SCRIPT', 'SVG'].includes(el.tagName);
+    });
+    let estadosFundo = [];
 
     function fonte(figura) {
         const img = figura.querySelector('img');
@@ -111,21 +121,25 @@ if (btnMobile && nav) {
         const d = fonte(itens[atual]);
         imagem.src = d.src;
         imagem.alt = d.alt;
-        legenda.textContent = d.alt;
+        legenda.textContent = d.alt + ' · ' + (atual + 1) + ' de ' + itens.length;
     }
 
     function abrir(indice) {
         focoAnterior = document.activeElement;
         mostrar(indice);
         lightbox.hidden = false;
+        overflowAnterior = document.body.style.overflow;
+        estadosFundo = fundo.map(function (el) { return el.inert; });
+        fundo.forEach(function (el) { el.inert = true; });
         document.body.style.overflow = 'hidden';
         fechar.focus();
     }
 
     function esconder() {
         lightbox.hidden = true;
-        document.body.style.overflow = '';
-        imagem.src = '';
+        document.body.style.overflow = overflowAnterior;
+        fundo.forEach(function (el, i) { el.inert = estadosFundo[i]; });
+        imagem.removeAttribute('src');
         if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
     }
 
@@ -152,6 +166,13 @@ if (btnMobile && nav) {
 
     document.addEventListener('keydown', function (ev) {
         if (lightbox.hidden) return;
+        if (ev.key === 'Tab') {
+            const botoes = [fechar, anterior, proxima];
+            const i = botoes.indexOf(document.activeElement);
+            if (ev.shiftKey && i <= 0) { ev.preventDefault(); proxima.focus(); }
+            else if (!ev.shiftKey && (i === botoes.length - 1 || i < 0)) { ev.preventDefault(); fechar.focus(); }
+        }
+        if (['Escape', 'ArrowLeft', 'ArrowRight'].includes(ev.key)) ev.preventDefault();
         if (ev.key === 'Escape') esconder();
         if (ev.key === 'ArrowLeft') mostrar(atual - 1);
         if (ev.key === 'ArrowRight') mostrar(atual + 1);
@@ -215,11 +236,17 @@ function linkWhats(numero, texto) {
     const tel = document.getElementById('telefone');
     const mail = document.getElementById('email');
     const msg = document.getElementById('mensagem');
-    const botao = document.getElementById('btn-enviar');
+    const pronta = document.getElementById('mensagem-pronta');
+    const textoPronto = document.getElementById('texto-pronto');
+    const copiar = document.getElementById('copiar-mensagem');
+    const canal = document.getElementById('enviar-canal');
+    const status = document.getElementById('envio-status');
 
     function marcar(campo, ruim) {
         campo.classList.toggle('invalido', ruim);
         campo.setAttribute('aria-invalid', ruim ? 'true' : 'false');
+        if (ruim) campo.setAttribute('aria-describedby', 'form-erro');
+        else campo.removeAttribute('aria-describedby');
     }
 
     function avisar(texto, campo) {
@@ -228,7 +255,6 @@ function linkWhats(numero, texto) {
         erro.hidden = false;
         if (campo) {
             campo.focus();
-            campo.scrollIntoView({ block: 'center', behavior: 'smooth' });
         }
     }
 
@@ -239,8 +265,10 @@ function linkWhats(numero, texto) {
     }
 
     form.addEventListener('input', function (ev) {
+        if (![nome, tel, mail, msg].includes(ev.target)) return;
         if (ev.target.classList) marcar(ev.target, false);
         if (!erro.hidden && erro.className === 'form-erro') erro.hidden = true;
+        pronta.hidden = true;
     });
 
     function validar() {
@@ -256,11 +284,17 @@ function linkWhats(numero, texto) {
         const m = msg.value.trim();
         if (m.length < 15) {
             marcar(msg, true);
-            avisar('Conte um pouco mais (pelo menos umas duas linhas) para podermos ajudar melhor.', msg);
+            avisar('Escreva uma mensagem com pelo menos 15 caracteres, sem informações de saúde detalhadas.', msg);
             return false;
         }
 
         const e = mail.value.trim();
+        const telefone = tel.value.replace(/\D/g, '');
+        if (tel.value.trim() && (telefone.length < 10 || telefone.length > 15)) {
+            marcar(tel, true);
+            avisar('Confira o telefone, incluindo o DDD, ou deixe esse campo em branco.', tel);
+            return false;
+        }
         if (e && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)) {
             marcar(mail, true);
             avisar('O e-mail parece incompleto. Confira, ou deixe em branco.', mail);
@@ -285,73 +319,29 @@ function linkWhats(numero, texto) {
         return linhas.join('\n');
     }
 
-    /* --- entrega a mensagem pelo canal disponível ------------------ */
-    async function entregar(texto) {
-
-        // 1) WhatsApp, quando houver número cadastrado
-        const zap = linkWhats(CONFIG.whatsapp, texto);
-        if (zap) {
-            window.open(zap, '_blank', 'noopener');
-            return 'Abrimos o WhatsApp com sua mensagem pronta. Só tocar em enviar.';
-        }
-
-        // 2) Sem WhatsApp: copia para a área de transferência
-        let copiado = false;
+    // O texto sempre fica visível. Nenhuma ação confirma envio ou apaga campos.
+    copiar.addEventListener('click', async function () {
         try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                await navigator.clipboard.writeText(texto);
-                copiado = true;
-            }
-        } catch (e) { /* navegador antigo — cai no recurso abaixo */ }
-
-        if (!copiado) {
-            const caixa = document.createElement('textarea');
-            caixa.value = texto;
-            caixa.setAttribute('readonly', '');
-            caixa.style.position = 'fixed';
-            caixa.style.opacity = '0';
-            document.body.appendChild(caixa);
-            caixa.select();
-            try { copiado = document.execCommand('copy'); } catch (e) { copiado = false; }
-            document.body.removeChild(caixa);
+            await navigator.clipboard.writeText(textoPronto.value);
+            status.textContent = 'Texto copiado. Abra o canal, cole na conversa e confirme o envio por lá. Nada foi enviado pelo site.';
+        } catch (e) {
+            textoPronto.focus();
+            textoPronto.select();
+            status.textContent = 'A cópia automática não está disponível. O texto foi selecionado: copie manualmente e cole no canal de contato.';
         }
-
-        if (copiado && linkInstagram()) {
-            window.open(linkInstagram(), '_blank', 'noopener');
-            return 'Sua mensagem foi copiada e abrimos o Instagram. Cole-a na conversa e pronto.';
-        }
-
-        if (copiado) {
-            return 'Sua mensagem foi copiada. Basta colar onde preferir.';
-        }
-
-        return 'Não foi possível copiar automaticamente. Seu texto está abaixo — copie e envie.';
-    }
+    });
 
     form.addEventListener('submit', function (ev) {
         ev.preventDefault();
         if (!validar()) return;
 
-        const texto = montarMensagem();
-        const antes = botao.textContent;
-        botao.disabled = true;
-        botao.textContent = 'Preparando…';
-
-        entregar(texto).then(function (aviso) {
-            botao.disabled = false;
-            botao.textContent = antes;
-
-            erro.className = 'form-erro form-ok';
-            erro.textContent = aviso;
-            erro.hidden = false;
-
-            form.reset();
-
-            window.setTimeout(function () {
-                erro.hidden = true;
-                erro.className = 'form-erro';
-            }, 14000);
-        });
+        textoPronto.value = montarMensagem();
+        const zap = linkWhats(CONFIG.whatsapp, textoPronto.value);
+        canal.href = zap || (CONFIG.email ? 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Contato pelo site') + '&body=' + encodeURIComponent(textoPronto.value) : linkInstagram());
+        canal.textContent = zap ? 'Abrir WhatsApp ↗' : CONFIG.email ? 'Abrir e-mail ↗' : 'Abrir Instagram ↗';
+        status.textContent = zap || CONFIG.email ? 'Nada foi enviado. Abra o canal e confirme o envio no aplicativo.' : 'Nada foi enviado. Copie o texto e cole na conversa do Instagram.';
+        pronta.hidden = false;
+        textoPronto.focus();
     });
 })();
 
